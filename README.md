@@ -20,12 +20,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Features
 
-- Next.js 14 with App Router
+- Minimalistic Next.js 14 setup with App Router
 - Server-Side Rendering (SSR) for optimal SEO and performance
-- Responsive navbar with active link highlighting
+- Simple navbar with active link highlighting
 - File-based routing
-- Modern, dark-themed UI
-- Pure JavaScript (no TypeScript)
+- Clean, minimal dark-themed UI
+- Pure JavaScript (no TypeScript, no unnecessary dependencies)
 
 ## Pages
 
