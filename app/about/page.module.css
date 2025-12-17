@@ -16,6 +16,12 @@
   position: relative;
   display: inline-block;
   text-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: none;
+}
+
+.title:hover {
+  transform: scale(1.05);
 }
 
 .title::before {
@@ -28,13 +34,25 @@
   height: 60%;
   background: linear-gradient(180deg, #ff0080, #00ff80, #8000ff);
   border-radius: 2px;
+  transition: height 0.4s ease;
+}
+
+.title:hover::before {
+  height: 100%;
+}
+
+.intro {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  line-height: 1.8;
 }
 
 .content {
   color: #b0b0b0;
   font-size: 1.2rem;
   line-height: 2;
-  animation: slideInRight 0.8s ease-out 0.2s both;
   max-width: 800px;
 }
 
@@ -42,13 +60,44 @@
   margin-bottom: 1.5rem;
   padding-left: 2rem;
   border-left: 2px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .content p:hover {
   padding-left: 2.5rem;
   color: #fff;
   border-left-color: rgba(255, 255, 255, 0.5);
+}
+
+.skills {
+  margin-top: 4rem;
+}
+
+.skillsTitle {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.skill {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.skill:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
@@ -58,5 +107,9 @@
 
   .content {
     font-size: 1rem;
+  }
+
+  .skillGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

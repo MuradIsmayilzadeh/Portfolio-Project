@@ -19,6 +19,12 @@
   position: relative;
   text-align: center;
   text-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: none;
+}
+
+.title:hover {
+  transform: scale(1.05);
 }
 
 .title::before,
@@ -30,6 +36,7 @@
   height: 2px;
   background: linear-gradient(90deg, #ff0080, #00ff80, #8000ff);
   border-radius: 1px;
+  transition: width 0.4s ease;
 }
 
 .title::before {
@@ -40,30 +47,72 @@
   right: -80px;
 }
 
-.content {
-  color: #b0b0b0;
-  font-size: 1.2rem;
-  line-height: 2;
-  animation: slideInUp 0.8s ease-out 0.2s both;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+.title:hover::before,
+.title:hover::after {
+  width: 80px;
 }
 
-.content p {
-  margin-bottom: 1.5rem;
+.intro {
+  font-size: 1.3rem;
+  color: #888;
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contactCard {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  transition: all 0.3s ease;
-  position: relative;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.content p:hover {
+.contactCard:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.02);
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cardTitle {
+  font-size: 1.2rem;
   color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.cardLink {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cardLink:hover {
+  color: #00ff80;
+}
+
+.message {
+  margin-top: 4rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.messageText {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 @media (max-width: 768px) {
@@ -76,7 +125,7 @@
     display: none;
   }
 
-  .content {
-    font-size: 1rem;
+  .contactGrid {
+    grid-template-columns: 1fr;
   }
 }

@@ -21,6 +21,12 @@
   animation: rgbTextFlow 3s linear infinite;
   position: relative;
   text-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: none;
+}
+
+.title:hover {
+  transform: scale(1.05);
 }
 
 .title::after {
@@ -33,10 +39,22 @@
   height: 2px;
   background: linear-gradient(90deg, #ff0080, #00ff80, #8000ff);
   border-radius: 1px;
+  transition: width 0.5s ease;
+}
+
+.title:hover::after {
+  width: 300px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #888;
+  margin-bottom: 3rem;
+  animation: slideInUp 1.2s ease-out 0.1s both;
 }
 
 .description {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #b0b0b0;
   max-width: 700px;
   margin-top: 2rem;
@@ -44,11 +62,75 @@
   line-height: 1.8;
 }
 
-.description::first-letter {
-  font-size: 2rem;
+.cta {
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 2px solid;
+  border-image: linear-gradient(90deg, #ff0080, #00ff80, #8000ff) 1;
   color: #fff;
-  -webkit-text-stroke: 1px;
-  -webkit-text-stroke-color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff0080, #00ff80, #8000ff);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.cta:hover::before {
+  left: 0;
+}
+
+.cta:hover {
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.feature {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.feature:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.featureTitle {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.featureDesc {
+  font-size: 0.95rem;
+  color: #888;
 }
 
 @media (max-width: 768px) {
@@ -57,6 +139,10 @@
   }
 
   .description {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
   }
 }

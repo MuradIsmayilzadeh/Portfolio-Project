@@ -14,6 +14,30 @@
   --bg-darker: #050505;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff0080, #00ff80, #8000ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff0080, #ffff00, #00ff80, #8000ff);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8000ff var(--bg-darker);
+}
+
 body {
   font-family: system-ui, -apple-system, sans-serif;
   background: var(--bg-dark);
@@ -21,6 +45,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  cursor: none;
 }
 
 body::before {
@@ -46,11 +71,66 @@ main {
   z-index: 1;
 }
 
+/* Custom Cursor Styles */
+.cursor-outer {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid;
+  border-color: #ff0080;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  opacity: 0;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  animation: cursorRgb 3s linear infinite;
+}
+
+.cursor-outer.visible {
+  opacity: 1;
+}
+
+.cursor-outer.hovering {
+  width: 30px;
+  height: 30px;
+  border-color: #00ff80;
+}
+
+.cursor-inner {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #ff0080, #00ff80, #8000ff);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  opacity: 0;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.cursor-inner.visible {
+  opacity: 1;
+}
+
+.cursor-inner.hovering {
+  width: 12px;
+  height: 12px;
+}
+
+@keyframes cursorRgb {
+  0% { border-color: #ff0080; }
+  33% { border-color: #00ff80; }
+  66% { border-color: #8000ff; }
+  100% { border-color: #ff0080; }
+}
+
 /* Scroll animations */
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(60px);
   }
   to {
     opacity: 1;
@@ -61,7 +141,7 @@ main {
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-60px);
   }
   to {
     opacity: 1;
@@ -72,7 +152,7 @@ main {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(60px);
   }
   to {
     opacity: 1;
@@ -96,14 +176,21 @@ main {
 /* Scroll animation classes */
 .scroll-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .scroll-animate.animate-in {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Staggered scroll animations */
+.scroll-animate:nth-child(1) { transition-delay: 0s; }
+.scroll-animate:nth-child(2) { transition-delay: 0.1s; }
+.scroll-animate:nth-child(3) { transition-delay: 0.2s; }
+.scroll-animate:nth-child(4) { transition-delay: 0.3s; }
+.scroll-animate:nth-child(5) { transition-delay: 0.4s; }
 
 /* Smooth scrolling */
 html {
@@ -344,5 +431,26 @@ nav {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* Hover animations for interactive elements */
+a, button {
+  cursor: none;
+}
+
+/* Mobile - show default cursor */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  
+  a, button {
+    cursor: pointer;
+  }
+  
+  .cursor-outer,
+  .cursor-inner {
+    display: none;
   }
 }

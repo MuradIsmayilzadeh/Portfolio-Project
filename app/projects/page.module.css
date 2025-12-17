@@ -16,6 +16,12 @@
   position: relative;
   display: inline-block;
   text-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: none;
+}
+
+.title:hover {
+  transform: scale(1.05);
 }
 
 .title::after {
@@ -27,45 +33,92 @@
   height: 2px;
   background: linear-gradient(90deg, #ff0080, #00ff80, #8000ff);
   border-radius: 1px;
+  transition: width 0.4s ease;
 }
 
-.content {
-  color: #b0b0b0;
-  font-size: 1.2rem;
-  line-height: 2;
-  animation: slideInLeft 0.8s ease-out 0.2s both;
-  max-width: 800px;
+.title:hover::after {
+  width: 200px;
 }
 
-.content p {
-  margin-bottom: 1.5rem;
-  padding: 1.5rem;
+.intro {
+  font-size: 1.3rem;
+  color: #888;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.project {
+  padding: 2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-.content p::before {
+.project::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.6s ease;
 }
 
-.content p:hover::before {
+.project:hover::before {
   left: 100%;
 }
 
-.content p:hover {
+.project:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  transform: translateX(10px);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.project:hover .projectTitle {
+  color: #00ff80;
+}
+
+.projectDesc {
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech {
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+
+.tech:hover {
+  border-color: rgba(255, 255, 255, 0.3);
   color: #fff;
 }
 
@@ -74,7 +127,7 @@
     font-size: 2.5rem;
   }
 
-  .content {
-    font-size: 1rem;
+  .projectGrid {
+    grid-template-columns: 1fr;
   }
 }
