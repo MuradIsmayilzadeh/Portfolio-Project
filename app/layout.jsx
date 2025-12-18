@@ -5,7 +5,7 @@ import CustomCursor from '../components/CustomCursor'
 import './globals.css'
 
 export const metadata = {
-  title: 'Portfolio Project',
+  title: 'Portfolio by M.I.',
   description: 'A Next.js portfolio application',
 }
 
