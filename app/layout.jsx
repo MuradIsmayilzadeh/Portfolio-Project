@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import PageTransition from '../components/PageTransition'
 import InitialLoader from '../components/InitialLoader'
 import CustomCursor from '../components/CustomCursor'
+import Footer from '../components/Footer'
 import './globals.css'
 
 export const metadata = {
@@ -21,6 +22,9 @@ export default function RootLayout({ children }) {
             {children}
           </PageTransition>
         </main>
+      <footer>
+        <Footer/>
+      </footer>
       </body>
     </html>
   )

@@ -6,6 +6,8 @@ export default function CustomCursor() {
   const [mounted, setMounted] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [innerPosition, setInnerPosition] = useState({ x: 0, y: 0 })
+  const [innerPosition2, setInnerPosition2] = useState({ x: 0, y: 0 })
+
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -64,8 +66,12 @@ export default function CustomCursor() {
     
     const animate = () => {
       setInnerPosition((prev) => ({
-        x: prev.x + (position.x - prev.x) * 0.15,
-        y: prev.y + (position.y - prev.y) * 0.15,
+        x: prev.x + (position.x - prev.x) * 0.05,
+        y: prev.y + (position.y - prev.y) * 0.05,
+      }))
+      setInnerPosition2((prev) => ({
+        x: prev.x + (position.x - prev.x) * 0.11,
+        y: prev.y + (position.y - prev.y) * 0.11,
       }))
       animationId = requestAnimationFrame(animate)
     }
@@ -93,6 +99,13 @@ export default function CustomCursor() {
         style={{
           left: `${innerPosition.x}px`,
           top: `${innerPosition.y}px`,
+        }}
+      />
+        <div
+        className={`cursor-outer2 ${isHovering ? 'hovering' : ''} ${isVisible ? 'visible' : ''}`}
+        style={{
+          left: `${innerPosition2.x}px`,
+          top: `${innerPosition2.y}px`,
         }}
       />
     </>

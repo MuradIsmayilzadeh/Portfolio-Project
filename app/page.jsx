@@ -5,15 +5,18 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title} data-hover>UE5 Game Developer</h1>
-      <p className={styles.subtitle}>Unreal Engine 5 • Blueprints • C++ • Game Design</p>
+      <h1 className={styles.title} data-hover>Game Developer</h1>
+      <p className={styles.subtitle}>
+        Unreal Engine • Unity • C++ • Custom Engines • Game Design
+      </p>
       
       <ScrollAnimation>
         <p className={styles.description}>
-          I create immersive gaming experiences using Unreal Engine 5, combining
-          cutting-edge graphics, smooth gameplay mechanics, and innovative design.
-          From AAA-quality visuals to optimized performance, I bring game concepts
-          to life with passion and technical expertise.
+          I design and develop immersive games across multiple engines and platforms.
+          From high-end 3D experiences in Unreal Engine to flexible systems in Unity
+          and custom-built engines, I focus on solid gameplay mechanics, performance,
+          and clean architecture. My goal is to turn ideas into polished, engaging
+          interactive experiences.
         </p>
       </ScrollAnimation>
 
@@ -26,16 +29,24 @@ export default function Home() {
       <ScrollAnimation>
         <div className={styles.features}>
           <div className={styles.feature}>
-            <h3 className={styles.featureTitle}>UE5 Development</h3>
-            <p className={styles.featureDesc}>Blueprints, C++, Nanite, Lumen</p>
+            <h3 className={styles.featureTitle}>Game Development</h3>
+            <p className={styles.featureDesc}>
+              Unreal Engine, Unity, Custom C++ Engines
+            </p>
           </div>
+
           <div className={styles.feature}>
-            <h3 className={styles.featureTitle}>Game Design</h3>
-            <p className={styles.featureDesc}>Mechanics, Systems, Level Design</p>
+            <h3 className={styles.featureTitle}>Programming</h3>
+            <p className={styles.featureDesc}>
+              C++, Blueprints, Gameplay Systems, Tools
+            </p>
           </div>
+
           <div className={styles.feature}>
-            <h3 className={styles.featureTitle}>Optimization</h3>
-            <p className={styles.featureDesc}>Performance, Profiling, Scalability</p>
+            <h3 className={styles.featureTitle}>Design & Optimization</h3>
+            <p className={styles.featureDesc}>
+              Mechanics, Level Design, Performance, Scalability
+            </p>
           </div>
         </div>
       </ScrollAnimation>

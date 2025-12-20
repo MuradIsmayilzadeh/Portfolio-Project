@@ -5,6 +5,19 @@
   flex-direction: column;
   justify-content: center;
 }
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cardIcon {
+  font-size: 1.4rem;
+  color: #00ffff;
+  display: flex;
+  align-items: center;
+}
 
 .title {
   font-size: 3.5rem;

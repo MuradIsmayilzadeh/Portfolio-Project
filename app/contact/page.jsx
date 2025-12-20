@@ -1,29 +1,34 @@
 import styles from './page.module.css'
 import ScrollAnimation from '../../components/ScrollAnimation'
+import { FiMail, FiGithub } from 'react-icons/fi'
+import { SiCodecademy } from 'react-icons/si'
 
 export default function Contact() {
   const contacts = [
     {
       title: 'Email',
       value: 'muradismayilzadehh@gmail.com',
-      href: 'mailto:muradismayilzadehh@gmail.com'
+      href: 'mailto:muradismayilzadehh@gmail.com',
+      icon: <FiMail />
     },
     {
       title: 'Code Academy',
       value: 'Murad Ismayilzadeh',
-      href: 'https://www.codecademy.com/profiles/dev9934992760'
+      href: 'https://www.codecademy.com/profiles/dev9934992760',
+      icon: <SiCodecademy />
     },
     {
       title: 'GitHub',
       value: 'github.com/MuradIsmayilzadeh',
-      href: 'https://github.com/MuradIsmayilzadeh/'
+      href: 'https://github.com/MuradIsmayilzadeh/',
+      icon: <FiGithub />
     }
   ]
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title} data-hover>Get In Touch</h1>
-      
+
       <ScrollAnimation>
         <p className={styles.intro}>
           Have a project in mind or just want to chat? I'm always open to
@@ -34,12 +39,25 @@ export default function Contact() {
       <ScrollAnimation>
         <div className={styles.contactGrid}>
           {contacts.map((contact, index) => (
+          <a
+            href={contact.href}
+            className={styles.cardLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div key={index} className={styles.contactCard} data-hover>
-              <h3 className={styles.cardTitle}>{contact.title}</h3>
-              <a href={contact.href} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+              <div className={styles.cardHeader}>
+                <span className={styles.cardIcon}>
+                  {contact.icon}
+                </span>
+                <h3 className={styles.cardTitle}>
+                  {contact.title}
+                </h3>
+              </div>
+
                 {contact.value}
-              </a>
             </div>
+              </a>
           ))}
         </div>
       </ScrollAnimation>
